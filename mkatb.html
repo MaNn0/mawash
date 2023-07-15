@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./Pics/LOGOC.png">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./css/mkatb.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <script defer src="./js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    </script>
+
+    <title>Al Mawash</title>
+
+</head>
+
+<body>
+
+
+
+
+    <nav class="navbar border-bottom-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"
+        style="background-color: #611d1e !important;">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="">
+                <img class="mx-4" src="/Pics/LOGOW.png" style="width: 80px; height: 70px;" alt="">
+
+                <a class="d-inline-flex text-decoration-none text-light mx-3" href="#">تسجيل دخول</a>
+                <a class="d-inline-flex text-decoration-none text-light" href="/register.html">انشاء حساب</a>
+            </div>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./home.html#contact">اتصل بنا</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="/home.html#br">اقسامنا</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="#">سوق البناء</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">الفعاليات والعروض</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ">الخدمات</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link text-white" aria-current="page" href="./home.html">الرئيسيه</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container f-p">
+        <h2>استعلام عن المكاتب الهندسية المعتمدة</h2>
+        <ul class="nav nav-tabs justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link redo" href="#">بحث برقم الترخيص </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link redo" href="#">بحث عام</a>
+            </li>
+
+        </ul>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col mx-3" style="padding: 12px;">
+                    <h4>فئة المكتب</h4>
+                    <select id="office" class="btn border w-100">
+                        <option value="" class="dropdown-item">الكل</option>
+                        <option value="newyork" class=""> مكتب استشارات هندسية</option>
+                        <option value="newyork" class=""> مكتب هندسي متخصص</option>
+                        <option value="newyork" class=""> مكتب خدمات هندسية مساندة</option>
+                        <option value="newyork" class=""> مكتب استشارات سلامة هندسية</option>
+                    </select>
+                </div>
+
+
+
+                <div class="col mx-3" style="padding: 12px;">
+                    <h4>المدينة</h4>
+                    <select id="city" class="btn border w-100">
+                        <option value="" class="dropdown-item">الكل</option>
+                        <!-- <option value="us" class="">منطقة مكة المكرمة</option>
+                        <option value="uk" class="">منطقة الشرقية</option>
+                        <option value="fr" class="">منطقة الحدود الشماله</option>
+                        <option value="fr" class="dropdown-item">منطقة عسير</option>
+                        <option value="fr" class="dropdown-item">منطقة الرياض</option> -->
+                    </select>
+                </div>
+
+                <div class="col mx-3" style="padding: 12px;">
+                    <h4>المنطقة</h4>
+                    <select id="state" class="btn border w-100">
+                        <option value="" class="dropdown-item">الكل</option>
+                        <!-- <option value="newyork" class="">منطقة مكة المكرمة</option>
+                        <option value="london" class="">منطقة الشرقية</option>
+                        <option value="paris" class="">منطقة الحدود الشماله</option>
+                        <option value="fr" class="dropdown-item">منطقة عسير</option>
+                        <option value="fr" class="dropdown-item">منطقة الرياض</option> -->
+                    </select>
+                </div>
+
+            </div>
+            <div class="col-2 d-flex align-items-start" style="padding: 12px;">
+                <button id="search-button" class="btn border w-100" onclick="search()">ابحث</button>
+            </div>
+
+        </div>
+
+        <div id="result" style="text-align: end;"></div>
+    </div>
+
+    <script>
+        const states = [
+            { name: 'منطقة مكة المكرمة', cities: ['مكة المكرمة', 'جدة', 'الطائف', 'القنفذة', 'الليث', 'رابغ', 'الجموم', 'خليص', 'الكامل', 'الخرمه', 'رنية', 'تربة', 'العرضية الشمالية', 'القوز', 'بحرة', 'العيص', 'أضم', 'مركز حلى', 'ابو راكة', 'ميسان', 'قياء', 'المويه', 'المظيلف'] },
+            { name: 'منطقة الشرقية', cities: ['الظهران', 'الأحساء', 'العيون', 'المبرز', 'الفوف', 'الدمام', 'الخبر', 'القطيف', 'بقيق', 'رأس تنورة', 'الجبيل', 'الجبيل الصناعية', 'الخفجي', 'النعيرية', 'قرية العليا', 'العوايمة', 'الجش', 'حفر الباطن', 'سيهات', 'القيصومة', 'صفوى'] },
+            { name: 'منطقة الحدود الشمالية', cities: ['رفحاء', 'طريف', 'عرعر', 'العويقيلة', ' حدود الشمالية'] },
+            { name: 'منطقة عسير', cities: ['خميس مشيط', 'بيشه', 'النماص', 'محايل', 'سراة عبيده', 'تثليث', 'رجال ألمع', 'احد رفيده', 'ظهران الجنوب', 'بلقرن', 'المجارده', 'ابها', 'باللسمر', 'وادي ابن هشيل', 'سبت العلايا', 'تنومه', 'بارق', 'الواديين', 'البرك', 'طريب'] },
+            { name: 'منطقة الرياض', cities: ['الرياض', 'الخرج', 'الدرعية', 'الدوادمي', 'المجمعة', 'وادي الدواسر', 'القويعية', 'الافلاج', 'الزلفي', 'شقراء', 'حوطة بني تميم', 'عفيف', 'السليل', 'ضرماء', 'المزاحمية', 'رماح', 'ثادق', 'حريملاء', 'الحريق', 'الغاط', 'رفايع الجمش', 'حوطة سدير', 'ساجر', 'الدلم', 'مرات', 'تمير', 'جلاجل', 'روضة سدير', 'الرين', 'الحلوة', 'العيينة والجبيلة', 'الهياثم', 'الرويضه', 'الأرطاوية', 'الاحمر', 'البديع الجنوبي', 'السر', 'الحيانية وبرك', 'نفى', 'البجادية', 'اشيقر', 'القصب', 'الهدار', 'حلبان عروي', 'بدائع العضيان', 'الحصاة', 'الجلة وتبراك', 'البديع الشمالي'] },
+            { name: 'منطقة المدينة المنورة', cities: ['المدينة المنورة', 'ينبع', 'ينبع الصناعية', 'العلا', 'المهد', 'بدر', 'خيبر', 'الحناكية', 'ينبع البحر', 'وادي العقيق', 'مهد الذهب', 'وادي الفرع', 'سليلة جهينه', 'ينبع النخل'] },
+            { name: 'منطقة الجوف', cities: ['الجوف', 'القريات', 'دومة الجندل', 'سكاكا', 'طبرجل'] },
+            { name: 'منطقة جازان', cities: ['جازان', 'صبياء', 'ابو عريش', 'صامطه', 'الحرث', 'ضمد', 'الريث', 'بيش', 'فرسان', 'الدائر', 'احد المسارحة', 'العيدابي', 'العارضه', 'الدرب', 'وادي جازان', 'فيفاء', 'هروب'] },
+            { name: 'منطقة القصيم', cities: ['بريده', 'عنيزه', 'الرس', 'البكيرية', 'رياض الخبرا', 'الخبرا', 'المذنب', 'البدائع', 'عيون الجوا', 'السحابين', 'الأسياح', 'النبهانية', 'الشماسية', 'العمار', 'الشيحية'] },
+            { name: 'منطقة حائل', cities: ['الحائل', 'بقعاء', 'الغزالة', 'الشنان', 'الحليفة السفلي', 'الحليفة العليا', 'الحائط', 'السليمي', 'الشملي'] },
+            { name: 'منطقة تبوك', cities: ['تبوك', 'الوجه', 'ضبياء', 'تيماء', 'املج', 'حقل', 'ضباء'] },
+            { name: 'منطقة الباحه', cities: ['الباحه', 'بالجرشي', 'المندق', 'المخواه', 'العقيق', 'قلوة', 'القرى', 'الحجرة', 'الاطاولة', 'غامد الزناد'] },
+            { name: 'منطقة نجران', cities: ['نجران', 'الخرخير', 'شروره', 'حبونا', 'بدر الجنوب', 'يدمه', 'ثار', 'خباش'] },
+            // Add more states and their cities here
+        ];
+        // const countrySelect = document.getElementById('office');
+        const stateSelect = document.getElementById('state');
+        const citySelect = document.getElementById('city');
+        const searchButton = document.getElementById('search-button');
+
+        // Populate the state select element with the states of the selected country
+        for (let i = 0; i < states.length; i++) {
+            const stateOption = document.createElement('option');
+            stateOption.value = states[i].name;
+            stateOption.textContent = states[i].name;
+            stateSelect.appendChild(stateOption);
+        }
+
+        // Display the cities of the selected state
+        stateSelect.addEventListener('change', () => {
+            const selectedState = stateSelect.value;
+            const selectedStateObj = states.find(state => state.name === selectedState);
+
+            // Clear the city select element
+            citySelect.innerHTML = '';
+
+            // Populate the city select element with the cities of the selected state
+            for (let i = 0; i < selectedStateObj.cities.length; i++) {
+                const cityOption = document.createElement('option');
+                cityOption.value = selectedStateObj.cities[i];
+                cityOption.textContent = selectedStateObj.cities[i];
+                citySelect.appendChild(cityOption);
+            }
+        });
+        const resultDiv = document.getElementById('result');
+        searchButton.addEventListener('click', () => {
+            const selectedState = stateSelect.value;
+            const selectedCity = citySelect.value;
+
+            if (selectedState && selectedCity) {
+                // Clear the result container
+                resultDiv.innerHTML = '';
+
+                var table = document.createElement('table');
+                table.className = 'table table-bordered'; // Add the Bootstrap table and table-bordered classes
+                table.style.direction = 'rtl'; // Set the table direction to right-to-left
+
+                var thead = document.createElement('thead');
+                var trHead = document.createElement('tr');
+
+                // ... (Add table headers here)
+
+                thead.appendChild(trHead);
+                table.appendChild(thead);
+
+                var tbody = document.createElement('tbody');
+
+                // Call the getDetails function with the selected state and city
+                getDetails(selectedState, selectedCity);
+
+                table.appendChild(tbody);
+                resultDiv.appendChild(table);
+            }
+        });
+
+
+        function search() {
+            var citySelect = document.getElementById('city');
+            var countrySelect = document.getElementById('state');
+            var resultDiv = document.getElementById('result');
+
+            var selectedCity = citySelect.value;
+            var selectedCountry = countrySelect.value;
+
+            // if (selectedCity === '' || selectedCountry === '') {
+            //     resultDiv.innerHTML = 'برجاء اختيار المدينة او المنطقة';
+            //     return;
+            // }
+
+            // Clear the result container
+            resultDiv.innerHTML = '';
+
+            var table = document.createElement('table');
+            table.className = 'table table-bordered'; // Add the Bootstrap table and table-bordered classes
+            table.style.direction = 'rtl'; // Set the table direction to right-to-left
+
+            var thead = document.createElement('thead');
+            var trHead = document.createElement('tr');
+
+            // Adding table headers
+            var thNumber = document.createElement('th');
+            thNumber.setAttribute('scope', 'col');
+            thNumber.textContent = '#';
+            thNumber.style.textAlign = 'center';
+            trHead.appendChild(thNumber);
+
+            var thOfficeName = document.createElement('th');
+            thOfficeName.setAttribute('scope', 'col');
+            thOfficeName.textContent = 'اسم المكتب';
+            thOfficeName.style.textAlign = 'right';
+            trHead.appendChild(thOfficeName);
+
+            var thOwnerName = document.createElement('th');
+            thOwnerName.setAttribute('scope', 'col');
+            thOwnerName.textContent = 'اسم المالك';
+            thOwnerName.style.textAlign = 'right';
+            trHead.appendChild(thOwnerName);
+
+            var thOfficeCategory = document.createElement('th');
+            thOfficeCategory.setAttribute('scope', 'col');
+            thOfficeCategory.textContent = 'فئة المكتب';
+            thOfficeCategory.style.textAlign = 'right';
+            trHead.appendChild(thOfficeCategory);
+
+            var thOfficeDetails = document.createElement('th');
+            thOfficeDetails.setAttribute('scope', 'col');
+            thOfficeDetails.textContent = 'تفاصيل المكتب';
+            thOfficeDetails.style.textAlign = 'right';
+            trHead.appendChild(thOfficeDetails);
+
+            thead.appendChild(trHead);
+            table.appendChild(thead);
+
+            var tbody = document.createElement('tbody');
+
+            function getDetails() {
+                fetch('https://almawash.serveo.net/offices')
+                    .then(response => response.json())
+                    .then(data => {
+                        for (var i = 0; i < data.length; i++) {
+                            var tr = document.createElement('tr');
+                            tr.setAttribute('dir', 'rtl');
+
+                            // Adding the serial number (index + 1) in the first column
+                            var tdNumber = document.createElement('td');
+                            tdNumber.setAttribute('scope', 'row');
+                            tdNumber.textContent = i + 1;
+                            tdNumber.style.textAlign = 'center'; // Set text alignment to center
+                            tr.appendChild(tdNumber);
+
+
+
+                            // Adding office name data in the second column
+                            var tdOfficeName = document.createElement('td');
+                            tdOfficeName.textContent = data[i].name;
+                            tdOfficeName.style.textAlign = 'right';
+                            tr.appendChild(tdOfficeName);
+
+                            // Adding owner name data in the third column
+                            var tdOwnerName = document.createElement('td');
+                            tdOwnerName.textContent = data[i].owner;
+                            tdOwnerName.style.textAlign = 'right';
+                            tr.appendChild(tdOwnerName);
+
+                            // Adding office category data in the fourth column
+                            var tdOfficeCategory = document.createElement('td');
+                            tdOfficeCategory.textContent = data[i].section;
+                            tdOfficeCategory.style.textAlign = 'right';
+                            tr.appendChild(tdOfficeCategory);
+
+                            // Adding office details data in the fifth column
+                            var tdOfficeDetails = document.createElement('td');
+                            tdOfficeDetails.style.textAlign = 'right';
+
+                            var linkElement = document.createElement('a');
+                            linkElement.href = './tafasel.html?id=' + data[i].id;;
+                            linkElement.textContent = 'تفاصيل المكتب';
+                            linkElement.style.color = '#611d1e';
+
+                            tdOfficeDetails.appendChild(linkElement);
+                            tr.appendChild(tdOfficeDetails);
+
+                            tbody.appendChild(tr);
+
+                        }
+                    })
+                    .catch(error => console.error(error));
+            }
+
+            getDetails();
+
+            table.appendChild(tbody);
+            resultDiv.appendChild(table);
+        }
+    </script>
+
+</body>
+
+</html>

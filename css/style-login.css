@@ -1,0 +1,33 @@
+@font-face {
+  font-family: "GE SS Two";
+  src: url(./fonts/alfont_com_AlFont_com_GE_SS_Two_Light-2.otf);
+}
+* {
+  box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "GE SS Two";
+  /* font-size: 15px; */
+  /* line-height: 1.5; */
+  text-align: right;
+  background-color: #000;
+  /* color: #fff; */
+}
+.bord {
+  background-color: transparent;
+  border: solid 0.2px rgba(255, 255, 255, 0.166);
+  border-radius: 2px;
+  text-align: right;
+  color: #ccc;
+}
+.form-control:focus {
+  box-shadow: none !important;
+  background-color: transparent;
+  border-color: #ccc;
+}
