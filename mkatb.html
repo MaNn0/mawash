@@ -150,6 +150,7 @@
         const stateSelect = document.getElementById('state');
         const citySelect = document.getElementById('city');
         const searchButton = document.getElementById('search-button');
+        const resultDiv = document.getElementById('result');
 
         // Populate the state select element with the states of the selected country
         for (let i = 0; i < states.length; i++) {
@@ -175,7 +176,7 @@
                 citySelect.appendChild(cityOption);
             }
         });
-        const resultDiv = document.getElementById('result');
+
         searchButton.addEventListener('click', () => {
             const selectedState = stateSelect.value;
             const selectedCity = citySelect.value;
@@ -191,20 +192,103 @@
                 var thead = document.createElement('thead');
                 var trHead = document.createElement('tr');
 
-                // ... (Add table headers here)
+                // Adding table headers
+                var thNumber = document.createElement('th');
+                thNumber.setAttribute('scope', 'col');
+                thNumber.textContent = '#';
+                thNumber.style.textAlign = 'center';
+                trHead.appendChild(thNumber);
+
+                var thOfficeName = document.createElement('th');
+                thOfficeName.setAttribute('scope', 'col');
+                thOfficeName.textContent = 'اسم المكتب';
+                thOfficeName.style.textAlign = 'right';
+                trHead.appendChild(thOfficeName);
+
+                var thOwnerName = document.createElement('th');
+                thOwnerName.setAttribute('scope', 'col');
+                thOwnerName.textContent = 'اسم المالك';
+                thOwnerName.style.textAlign = 'right';
+                trHead.appendChild(thOwnerName);
+
+                var thOfficeCategory = document.createElement('th');
+                thOfficeCategory.setAttribute('scope', 'col');
+                thOfficeCategory.textContent = 'فئة المكتب';
+                thOfficeCategory.style.textAlign = 'right';
+                trHead.appendChild(thOfficeCategory);
+
+                var thOfficeDetails = document.createElement('th');
+                thOfficeDetails.setAttribute('scope', 'col');
+                thOfficeDetails.textContent = 'تفاصيل المكتب';
+                thOfficeDetails.style.textAlign = 'right';
+                trHead.appendChild(thOfficeDetails);
 
                 thead.appendChild(trHead);
                 table.appendChild(thead);
 
                 var tbody = document.createElement('tbody');
 
-                // Call the getDetails function with the selected state and city
-                getDetails(selectedState, selectedCity);
+                getDetails(selectedState, selectedCity, tbody);
 
                 table.appendChild(tbody);
                 resultDiv.appendChild(table);
             }
         });
+
+        // Retrieve office details from the server
+        function getDetails(selectedState, selectedCity, tbody) {
+            fetch('https://almawash.serveo.net/offices')
+                .then(response => response.json())
+                .then(data => {
+                    for (var i = 0; i < data.length; i++) {
+                        var tr = document.createElement('tr');
+                        tr.setAttribute('dir', 'rtl');
+
+                        // Adding the serial number (index + 1) in the first column
+                        var tdNumber = document.createElement('td');
+                        tdNumber.setAttribute('scope', 'row');
+                        tdNumber.textContent = i + 1;
+                        tdNumber.style.textAlign = 'center'; // Set text alignment to center
+                        tr.appendChild(tdNumber);
+
+                        // Adding office name data in the second column
+                        var tdOfficeName = document.createElement('td');
+                        tdOfficeName.textContent = data[i].name;
+                        tdOfficeName.style.textAlign = 'right';
+                        tr.appendChild(tdOfficeName);
+
+                        // Adding owner name data in the third column
+                        var tdOwnerName = document.createElement('td');
+                        tdOwnerName.textContent = data[i].owner;
+                        tdOwnerName.style.textAlign = 'right';
+                        tr.appendChild(tdOwnerName);
+
+                        // Adding office category data in the fourth column
+                        var tdOfficeCategory = document.createElement('td');
+                        tdOfficeCategory.textContent = data[i].section;
+                        tdOfficeCategory.style.textAlign = 'right';
+                        tr.appendChild(tdOfficeCategory);
+
+                        // Adding office details data in the fifth column
+                        var tdOfficeDetails = document.createElement('td');
+                        tdOfficeDetails.style.textAlign = 'right';
+
+                        var linkElement = document.createElement('a');
+                        linkElement.href = './tafasel.html?id=' + data[i].id;
+                        linkElement.textContent = 'تفاصيل المكتب';
+                        linkElement.style.color = '#611d1e';
+
+                        tdOfficeDetails.appendChild(linkElement);
+                        tr.appendChild(tdOfficeDetails);
+
+                        tbody.appendChild(tr);
+                    }
+                })
+                .catch(error => console.error(error));
+        }
+
+
+
 
         // comment
         function search() {
@@ -266,65 +350,23 @@
 
             var tbody = document.createElement('tbody');
 
-            function getDetails() {
-                fetch('https://almawash.serveo.net/offices')
-                    .then(response => response.json())
-                    .then(data => {
-                        for (var i = 0; i < data.length; i++) {
-                            var tr = document.createElement('tr');
-                            tr.setAttribute('dir', 'rtl');
+            getDetails(selectedCity, selectedCountry, tbody);
 
-                            // Adding the serial number (index + 1) in the first column
-                            var tdNumber = document.createElement('td');
-                            tdNumber.setAttribute('scope', 'row');
-                            tdNumber.textContent = i + 1;
-                            tdNumber.style.textAlign = 'center'; // Set text alignment to center
-                            tr.appendChild(tdNumber);
+            table.appendChild(tbody);
+            resultDiv.appendChild(table);
 
 
+            thead.appendChild(trHead);
+            table.appendChild(thead);
 
-                            // Adding office name data in the second column
-                            var tdOfficeName = document.createElement('td');
-                            tdOfficeName.textContent = data[i].name;
-                            tdOfficeName.style.textAlign = 'right';
-                            tr.appendChild(tdOfficeName);
+            var tbody = document.createElement('tbody');
 
-                            // Adding owner name data in the third column
-                            var tdOwnerName = document.createElement('td');
-                            tdOwnerName.textContent = data[i].owner;
-                            tdOwnerName.style.textAlign = 'right';
-                            tr.appendChild(tdOwnerName);
-
-                            // Adding office category data in the fourth column
-                            var tdOfficeCategory = document.createElement('td');
-                            tdOfficeCategory.textContent = data[i].section;
-                            tdOfficeCategory.style.textAlign = 'right';
-                            tr.appendChild(tdOfficeCategory);
-
-                            // Adding office details data in the fifth column
-                            var tdOfficeDetails = document.createElement('td');
-                            tdOfficeDetails.style.textAlign = 'right';
-
-                            var linkElement = document.createElement('a');
-                            linkElement.href = './tafasel.html?id=' + data[i].id;;
-                            linkElement.textContent = 'تفاصيل المكتب';
-                            linkElement.style.color = '#611d1e';
-
-                            tdOfficeDetails.appendChild(linkElement);
-                            tr.appendChild(tdOfficeDetails);
-
-                            tbody.appendChild(tr);
-
-                        }
-                    })
-                    .catch(error => console.error(error));
-            }
-
-            getDetails();
+            getDetails(selectedCity, selectedCountry, tbody);
 
             table.appendChild(tbody);
             resultDiv.appendChild(table);
         }
+
     </script>
 
 </body>
