@@ -13,16 +13,16 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./css/mkatb.css" />
+    <!-- <link rel="stylesheet" href="./matagr.js"> -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script defer src="./js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    </script>
 
     <title>Al Mawash</title>
 
 </head>
 
-<body>
+<body onload="fetchData()">
 
 
 
@@ -68,72 +68,357 @@
 
     <section>
         <div class="container f-p px-5" style="height: 20%;">
-            <div id="carouselExampleIndicators" class="carousel slide m-auto " data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
+            <img class="w-100" src="./Pics/Screenshot 2023-07-17 182946.png" alt="">
+            <div class="row">
+                <div class="col-3 mr-4">
+                    <img src="./Pics/Screenshot 2023-07-19 162016.png" alt="" style="height: 200px;margin-right: 5px;">
                 </div>
-                <div class="">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="./Pics/19751805-800x600.jpeg" class="d-block w-100" alt="...">
+
+                <div class="col-9">
+                    <div id="carouselExampleIndicators" class="carousel slide m-auto" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
                         </div>
-                        <div class="carousel-item">
-                            <img src="./Pics/52992734-800x600.jpeg" class="d-block w-100" alt="...">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./Pics/19751805-800x600.jpeg" class="d-block w-100" alt="..."
+                                    style="height: 200px; object-fit: cover;">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/52992734-800x600.jpeg" class="d-block w-100" alt="..."
+                                    style="height: 200px; object-fit: cover;">
+                            </div>
                         </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
-            <div class="row" style="height: 150px; background-color: #611d1e;">
+
+            <div class="row " style="height: 150px; background-color: #611d1e; margin: 0;">
 
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">التصاميم الهندسية</p>
+                    <p class=" text-white">التصاميم الهندسية</p>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">مواد البناء</p>
+                    <p class=" text-white">مواد البناء</p>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">العدد والبناء</p>
+                    <p class=" text-white">العدد والبناء</p>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">الاثاث</p>
+                    <p class=" text-white">الاثاث</p>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">مستلزمات الحدائق</p>
+                    <p class=" text-white">مستلزمات الحدائق</p>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">ادوات صحية</p>
+                    <p class=" text-white">ادوات صحية</p>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">وحدات الاضاءة</p>
+                    <p class=" text-white">وحدات الاضاءة</p>
                 </div>
                 <div class="col d-flex flex-column justify-content-center align-items-center">
                     <img style="height: 100px; width: 100px;" src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
-                    <p class="mt-2 text-white">التكييف</p>
+                    <p class=" text-white">التكييف</p>
                 </div>
 
+            </div>
+
+        </div>
+
+        <!-- <div class="col  text-center">
+                <div class=" shadow p-3 mb-5 bg-body rounded bg-Secondary"
+                    style="border: 2px solid #559abc; height: 550px;">
+                    <img style="height:250px; width:200px" src="http://swap.serveo.net${item.images[0].url}"
+                        class="m-auto card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">${item.name}</p>
+                        <p class="card-text">${item.details}</p>
+                        <p class="card-text">${item.location}</p>
+                    </div>
+                    <p class="card-text m-auto" style="font-size: large;align-self: flex-end">
+                        <sup>EGP</sup><b>${item.price}</b>
+                    </p>
+                    <div class="card-footer d-flex justify-content-center align-items-center">
+                        <a href="#" class="btn" style="background-color: #6da5c0;">Go somewhere</a>
+                    </div>
+                </div>
+            </div> -->
+    </section>
+    <section id="cards" class="container px-5 " style="padding-top: 0px !important;">
+        <div class="row row-cols-1 row-cols-md-5 g-4 mb-4">
+            <div class="col text-center">
+                <div class="card h-100 " style="border: 2px solid #c7a96b;">
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./Pics/architecture-g045366435_1920.jpg" class="d-block w-100" alt="Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/architecture-building-construction-design-wallpaper-preview.jpg"
+                                    class="d-block w-100" alt="Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/istockphoto-1349030917-170667a.jpg" class="d-block w-100"
+                                    alt="Image 3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style=" color: #212121 !important;">فيلا ابراهيم
+                        </h5>
+                        <p class="card-text text-end text-muted">50 .ر.س</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn" style="background-color: #c7a96b;">اشتري الأن</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card h-100 " style="border: 2px solid #c7a96b;">
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./Pics/architecture-g045366435_1920.jpg" class="d-block w-100" alt="Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/architecture-building-construction-design-wallpaper-preview.jpg"
+                                    class="d-block w-100" alt="Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/istockphoto-1349030917-170667a.jpg" class="d-block w-100"
+                                    alt="Image 3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style=" color: #212121 !important;">فيلا ابراهيم
+                        </h5>
+                        <p class="card-text text-end text-muted">50 .ر.س</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn" style="background-color: #c7a96b;">اشتري الأن</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card h-100 " style="border: 2px solid #c7a96b;">
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./Pics/architecture-g045366435_1920.jpg" class="d-block w-100" alt="Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/architecture-building-construction-design-wallpaper-preview.jpg"
+                                    class="d-block w-100" alt="Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/istockphoto-1349030917-170667a.jpg" class="d-block w-100"
+                                    alt="Image 3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style=" color: #212121 !important;">فيلا ابراهيم
+                        </h5>
+                        <p class="card-text text-end text-muted">50 .ر.س</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn" style="background-color: #c7a96b;">اشتري الأن</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col text-center">
+                <div class="card h-100 " style="border: 2px solid #c7a96b;">
+                    <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="./Pics/architecture-g045366435_1920.jpg" class="d-block w-100" alt="Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/architecture-building-construction-design-wallpaper-preview.jpg"
+                                    class="d-block w-100" alt="Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="./Pics/istockphoto-1349030917-170667a.jpg" class="d-block w-100"
+                                    alt="Image 3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel1"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" style=" color: #212121 !important;">فيلا ابراهيم
+                        </h5>
+                        <p class="card-text text-end text-muted">50 .ر.س</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn" style="background-color: #c7a96b;">اشتري الأن</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <script>
+        function fetchData() {
+            fetch("https://almawash.serveo.net/itemss")
+                .then((response) => response.json())
+                .then((data) => {
+                    const itemsList = document.querySelector(
+                        ".row.row-cols-1.row-cols-md-5.g-4.mb-4"
+                    );
+
+                    data.forEach((item) => {
+                        const col = document.createElement("div");
+                        col.className = "col text-center";
+
+                        // Extract the first image URL from the "images" array
+                        const imageURL = item.images.length > 0 ? item.images[0].url : '';
+
+                        col.innerHTML = `
+            <div class="card h-100" style="border: 2px solid #c7a96b;">
+              <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carousel1" data-bs-slide-to="0"
+                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carousel1" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carousel1" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="${imageURL}" class="d-block w-100" alt="Image 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="${imageURL}" class="d-block w-100" alt="Image 2">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="${imageURL}" class="d-block w-100" alt="Image 3">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carousel1"
+                  data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carousel1"
+                  data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title" style="color: #212121 !important;">${item.name}</h5>
+                <p class="card-text text-end text-muted">${item.price}</p>
+              </div>
+              <div class="card-footer">
+                <a href="#" class="btn" style="background-color: #c7a96b;">اشتري الأن</a>
+              </div>
+            </div>
+          `;
+
+                        itemsList.appendChild(col);
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+
+        window.onload = function () {
+            fetchData();
+        };
+    </script>
 </body>
 
 </html>
