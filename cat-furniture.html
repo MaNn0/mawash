@@ -24,6 +24,11 @@
         .carousel-control-prev {
             width: 3% !important;
         }
+
+        .active-div {
+            background-color: #492222 !important;
+            border: 1px solid #fff !important;
+        }
     </style>
 </head>
 
@@ -87,7 +92,7 @@
                 </div>
 
                 <div class="col-9">
-                    <div id="carouselExampleIndicators" class="carousel slide m-auto">
+                    <div id="carouselExampleIndicators" class="carousel slide m-auto" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
                                 class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -143,7 +148,7 @@
                                     <p class="text-center">العدد والبناء</p>
                                 </a>
                             </div>
-                            <div class="col d-flex flex-column justify-content-center align-items-center">
+                            <div class="col d-flex flex-column justify-content-center align-items-center active-div">
                                 <a href="./cat-furniture.html" class="text-decoration-none text-white">
                                     <img style="height: 100px; width: 100px;"
                                         src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
@@ -190,7 +195,7 @@
                                 </a>
                             </div>
                             <div class="col d-flex flex-column justify-content-center align-items-center">
-                                <a href="./industrial.html" class="text-decoration-none text-white">
+                                <a href="./index.html" class="text-decoration-none text-white">
                                     <img style="height: 100px; width: 100px;"
                                         src="./Pics/1114011__1_-removebg-preview (2).png" alt="">
                                     <p class="text-center">الصناعه</p>
@@ -211,16 +216,13 @@
                 </button>
             </div>
 
-
         </div>
 
         <!-- <div class="col  text-center">
                 <div class=" shadow p-3 mb-5 bg-body rounded bg-Secondary"
-                    style="border:
-                    <a href=""> 2px solid #559abc; height: 550px;">
+                    style="border: 2px solid #559abc; height: 550px;">
                     <img style="height:250px; width:200px" src="http://swap.serveo.net${item.images[0].url}"
-                        class="m-auto card-img-top" alt=
-                        </a>"...">
+                        class="m-auto card-img-top" alt="...">
                     <div class="card-body">
                         <p class="card-text">${item.name}</p>
                         <p class="card-text">${item.details}</p>
@@ -239,16 +241,15 @@
         <div class="row" style="margin: 10px 0px;">
             <div class="d-flex col align-items-center justify-content-center text-light fs-3 "
                 style="background-color: #611d1e; width: 400px; height: 100px;">
-                اضف اعلانك المميز</div>
+                اعلان مدفوع</div>
 
             <div class="d-flex col align-items-center justify-content-center text-light mx-2 fs-3 "
-                style="background-color: #611d1e; width: 400px; height: 100px; padding: 0;">
-                <img src="./Pics/e3lan.jpeg" style="object-fit:cover; width: 100%; height: 100%;" alt="">
-            </div>
+                style="background-color: #611d1e; width: 400px; height: 100px;">
+                اعلان مدفوع</div>
 
             <div class="d-flex col align-items-center justify-content-center text-light fs-3 "
                 style="background-color: #611d1e; width: 400px; height: 100px;">
-                اضف اعلانك المميز</div>
+                اعلان مدفوع</div>
 
         </div>
         <div class="row row-cols-1 row-cols-md-5 g-4 mb-4">
@@ -265,11 +266,9 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
     <script>
-
         function fetchData() {
             fetch("https://almawash.serveo.net/items")
                 .then((response) => response.json())
@@ -311,8 +310,6 @@
         window.onload = function () {
             fetchData();
         };
-
-
     </script>
 </body>
 

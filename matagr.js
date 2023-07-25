@@ -23,7 +23,7 @@ function fetchData() {
                 </div>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="${item.images[0]}" class="d-block w-100" alt="Image 1">
+                    <img src="https://almawash.serveo.net/items${item.images[0].url}" class="d-block w-100" alt="Image 1">
                   </div>
                   <div class="carousel-item">
                     <img src="${item.images[1]}" class="d-block w-100" alt="Image 2">
