@@ -51,3 +51,40 @@ body::-webkit-scrollbar {
 table td {
   direction: rtl;
 }
+.carousel-control-next,
+.carousel-control-prev {
+  width: 3% !important;
+}
+
+.col-6 img {
+  width: 100%;
+  height: auto;
+}
+
+.col-8 img {
+  width: 50%;
+  height: 80%;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+}
+
+.hov:hover {
+  color: #616161;
+}
+
+.hov:hover i {
+  color: #616161 !important;
+}
+
+.icons i {
+  margin: 8px 12px;
+  font-size: 20px;
+  color: #611d1e;
+}
+
+.icons a {
+  font: 0 !important;
+}
