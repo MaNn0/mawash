@@ -37,15 +37,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/index.html#br">اقسامنا</a>
                     </li>
-                    <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">سوق البناء</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">الفعاليات والعروض</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link ">الخدمات</a>
-                </li> -->
+
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="./index.html">الرئيسيه</a>
                     </li>
@@ -198,11 +190,9 @@
         const userTypeSelect = document.getElementById('user-type-select');
         const additionalInputsDiv = document.getElementById('additional-inputs');
 
-        // Add event listener to the select element
         userTypeSelect.addEventListener('change', () => {
             const selectedOption = userTypeSelect.value;
 
-            // Show or hide the additional inputs based on the selected option
             if (selectedOption === 'merchant') {
                 additionalInputsDiv.style.display = 'flex';
             } else {
@@ -210,7 +200,6 @@
             }
         });
 
-        // Initial check for the selected option on page load
         if (userTypeSelect.value === 'merchant') {
             additionalInputsDiv.style.display = 'flex';
         }
@@ -236,7 +225,6 @@
                 var email = document.querySelector("#form input[name='email']").value;
                 var password = document.querySelector("#form input[name='password']").value;
 
-                // Create an object representing the user data
                 var userData = {
                     user: {
                         email: email,
@@ -246,10 +234,8 @@
                     }
                 };
 
-                // Convert the user data object to JSON
                 var jsonData = JSON.stringify(userData);
 
-                // Fetch request to submit form data
                 var response = await fetch("https://almawash.serveo.net/signup", {
                     method: "POST",
                     headers: {
@@ -263,10 +249,8 @@
                 }
 
                 var data = await response.json();
-                // Handle the response data here
                 console.log(data);
             } catch (error) {
-                // Handle any errors here
                 console.error(error);
             }
         }

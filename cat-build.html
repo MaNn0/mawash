@@ -59,15 +59,6 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/index.html#br">اقسامنا</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">سوق البناء</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">الفعاليات والعروض</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ">الخدمات</a>
-                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="./index.html">الرئيسيه</a>
                     </li>
@@ -216,25 +207,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- <div class="col  text-center">
-                <div class=" shadow p-3 mb-5 bg-body rounded bg-Secondary"
-                    style="border: 2px solid #559abc; height: 550px;">
-                    <img style="height:250px; width:200px" src="http://swap.serveo.net${item.images[0].url}"
-                        class="m-auto card-img-top" alt="...">
-                    <div class="card-body">
-                        <p class="card-text">${item.name}</p>
-                        <p class="card-text">${item.details}</p>
-                        <p class="card-text">${item.location}</p>
-                    </div>
-                    <p class="card-text m-auto" style="font-size: large;align-self: flex-end">
-                        <sup>EGP</sup><b>${item.price}</b>
-                    </p>
-                    <div class="card-footer d-flex justify-content-center align-items-center">
-                        <a href="#" class="btn text-light" style="background-color: #6da5c0;">Go somewhere</a>
-                    </div>
-                </div>
-            </div> -->
     </section>
     <section id="cards" class="container px-5 " style="padding-top: 0px !important;">
         <div class="row" style="margin: 10px 0px;">
@@ -319,7 +291,6 @@
                         const col = document.createElement("div");
                         col.className = "col text-center";
 
-                        // Check if the item has any images
                         const imageUrl = item.images.length > 0 ? `https://almawash.serveo.net${item.images[0].url}` : 'default-image-url.jpg';
 
                         col.innerHTML = `

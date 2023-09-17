@@ -13,7 +13,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./css/mkatb.css" />
-    <!-- <link rel="stylesheet" href="./matagr.js"> -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script defer src="./js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -49,15 +48,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/index.html#br">اقسامنا</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">سوق البناء</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">الفعاليات والعروض</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ">الخدمات</a>
-                    </li> -->
+
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="./index.html">الرئيسيه</a>
                     </li>
@@ -70,51 +61,20 @@
     <section>
         <div class="container " style="height: 20%;">
 
-            <div class="row">
-                <div class="col-2 card g-4 pt-2">
-                    <div class="row">
-                        <div class="col-6 ">
-                            <img class="my-1" src="./Pics/mktb1.jpeg" alt="">
-                            <img class="my-1" src="./Pics/mktb2.jpeg" alt="">
-                            <img class="my-1" src="./Pics/mktb3.jpeg" alt="">
-                        </div>
-                        <div class="col-6 ">
-                            <img class="my-1" src="./Pics/mktb4.jpeg" alt="">
-                            <img src="./Pics/mktb5.jpeg" alt="">
-                        </div>
+            <div class="col-2 card g-4 pt-2">
+                <div class="row">
+                    <div class="col-6 ">
+
                     </div>
-                </div>
-                <div class="col-8 g-4 ">
-                    <img class="d-block mx-auto" src="./Pics/mktb4.jpeg" alt="">
-                    <p class="mt-4" dir="rtl">
-                        قطعة أثاث ونوع من المناضد التي تستخدم غالبًا للجلوس عليها في المدرسة أو المكتب لأجل القراءة أو
-                        الكتابة أو استخدام الحاسوب. وتحتوي المكاتب غالبًا على درج واحد أو أكثر أو أجزاء مستقلة أو فتحات
-                        صغيرة لتخزين الأوراق واللوازم المكتبية.
+                    <div class="col-6 ">
 
-                    </p>
-                </div>
-
-                <div class="col-2 g-4">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title">مكتب اثاث خشب طبيعي</h5>
-                            <p class="card-text" dir="rtl">قطعة أثاث ونوع من المناضد التي تستخدم غالبًا للجلوس عليها في
-                                المدرسة أو
-                                المكتب لأجل القراءة أو الكتابة أو استخدام الحاسوب. وتحتوي المكاتب غالبًا على درج واحد أو
-                                أكثر أو أجزاء مستقلة أو فتحات صغيرة لتخزين الأوراق واللوازم المكتبية.</p>
-                        </div>
-                        <ul class="list-group list-group-flush" dir="rtl">
-                            <li class="list-group-item">خشب زان</li>
-                            <li class="list-group-item">ثلاثة ادراج</li>
-                            <li class="list-group-item">تصميم عصري</li>
-                        </ul>
-                        <div class="card-body" dir="rtl">
-                            <button type="button" class="btn btn-outline-danger">شراء</button>
-                            <button type="button" class="btn btn-outline-danger">اضف للعربة</button>
-                        </div>
                     </div>
                 </div>
             </div>
+
+
+
+        </div>
         </div>
     </section>
     <section id="cards" class="container mt-5">
@@ -209,11 +169,7 @@
                     <div class="end" style="text-align: center; font-size: 12px; margin-top: 12px ; opacity: 0.7;">
                         © 2023 &nbsp; | &nbsp; جميع الحقوق محفوظه لمكتب المواش للأستشارات الهندسية &nbsp;
                     </div>
-                    <!-- <ul class="list-unstyled small text-muted">
-                        <li>test</li>
-                        <li></li>
-                        <li></li>
-                    </ul> -->
+
                 </div>
 
                 <div class="col-6 col-lg-3 mb-3 d-flex flex-column justify-content-center">
@@ -265,7 +221,53 @@
             </div>
         </div>
     </footer>
+    <script>
 
+
+        function fetchData(itemId) {
+            fetch(`https://almawash.serveo.net/items/${itemId}`)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    return response.json();
+                })
+                .then((item) => {
+                    const imageContainer1 = document.querySelector(".col-6:nth-child(1)");
+                    const imageContainer2 = document.querySelector(".col-6:nth-child(2)");
+
+                    imageContainer1.innerHTML = "";
+                    imageContainer2.innerHTML = "";
+
+                    let currentContainer = imageContainer1;
+
+                    item.images.forEach((image, index) => {
+                        if (index === 3) {
+                            currentContainer = imageContainer2;
+                        }
+
+                        const img = document.createElement("img");
+                        img.className = "my-1";
+                        img.src = image.url;
+                        img.alt = "";
+
+                        currentContainer.appendChild(img);
+                    });
+                })
+                .catch((error) => {
+                    console.error("Error:", error);
+                });
+        }
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const itemId = urlParams.get("id");
+
+        if (itemId) {
+            fetchData(itemId);
+        }
+
+
+    </script>
 </body>
 
 </html>

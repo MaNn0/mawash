@@ -13,11 +13,8 @@ h4,
 h5,
 h6 {
   font-family: "GE SS Two";
-  /* font-size: 15px; */
-  /* line-height: 1.5; */
   text-align: right;
   background-color: #000;
-  /* color: #fff; */
 }
 .bord {
   background-color: transparent;

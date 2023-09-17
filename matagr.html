@@ -13,7 +13,6 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="./css/mkatb.css" />
-    <!-- <link rel="stylesheet" href="./matagr.js"> -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <script defer src="./js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -23,6 +22,10 @@
         .carousel-control-next,
         .carousel-control-prev {
             width: 3% !important;
+        }
+
+        .card-img-top {
+            height: 250px;
         }
     </style>
 </head>
@@ -54,15 +57,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/index.html#br">اقسامنا</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">سوق البناء</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">الفعاليات والعروض</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ">الخدمات</a>
-                    </li> -->
+
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="./index.html">الرئيسيه</a>
                     </li>
@@ -214,26 +209,7 @@
 
         </div>
 
-        <!-- <div class="col  text-center">
-                <div class=" shadow p-3 mb-5 bg-body rounded bg-Secondary"
-                    style="border:
-                    <a href=""> 2px solid #559abc; height: 550px;">
-                    <img style="height:250px; width:200px" src="http://swap.serveo.net${item.images[0].url}"
-                        class="m-auto card-img-top" alt=
-                        </a>"...">
-                    <div class="card-body">
-                        <p class="card-text">${item.name}</p>
-                        <p class="card-text">${item.details}</p>
-                        <p class="card-text">${item.location}</p>
-                    </div>
-                    <p class="card-text m-auto" style="font-size: large;align-self: flex-end">
-                        <sup>EGP</sup><b>${item.price}</b>
-                    </p>
-                    <div class="card-footer d-flex justify-content-center align-items-center">
-                        <a href="#" class="btn text-light" style="background-color: #6da5c0;">Go somewhere</a>
-                    </div>
-                </div>
-            </div> -->
+
     </section>
     <section id="cards" class="container px-5 " style="padding-top: 0px !important;">
         <div class="row" style="margin: 10px 0px;">
@@ -252,56 +228,39 @@
 
         </div>
         <div class="row row-cols-1 row-cols-md-5 g-4 mb-4">
-            <div class="col text-center">
-                <div class="card h-100 " style="border: 2px solid #611d1e;">
-                    <a href="./product.html">
-                        <img src="./Pics/architecture-g045366435_1920.jpg" class="d-block w-100" alt="">
-                    </a>
-                    <div class="card-body">
-                        <h6 class="card-title" style=" color: #212121 !important;">فيلا ابراهيم
-                            </h5>
-                            <p class="card-text text-end text-muted d-flex justify-content-between">
-                                <span class="card-text text-start text-muted"> التاجر: يزيد</span>
-                                50 .ر.س
-                            </p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="./product.html" class="btn text-light" style="background-color: #611d1e;">اشتري
-                            الأن</a>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </section>
     <script>
-
         function fetchData() {
             fetch("https://almawash.serveo.net/items")
                 .then((response) => response.json())
                 .then((data) => {
-                    const itemsList = document.querySelector(
-                        ".row.row-cols-1.row-cols-md-5.g-4.mb-4"
-                    );
+                    const itemsList = document.querySelector(".row.row-cols-1.row-cols-md-5.g-4.mb-4");
 
                     data.forEach((item) => {
                         const col = document.createElement("div");
                         col.className = "col text-center";
 
-                        // Check if the item has any images
-                        const imageUrl = item.images.length > 0 ? `https://almawash.serveo.net${item.images[0].url}` : 'default-image-url.jpg';
+                        const imageUrl = Array.isArray(item.images) && item.images.length > 0 ? item.images[0].url : "";
 
                         col.innerHTML = `
-                        <div class="card h-100" style="border: 2px solid #611d1e;">
-                            <img src="https://almawash.serveo.net/items${item.images[0].url}" class="d-block w-100" alt="Image 1">
+                        <div class="card h-100 " style="border: 2px solid #611d1e;">
+                            <a href="./product.html?id=${item.id}">
+                            <img src="${imageUrl}" class="d-block w-100 card-img-top" alt="${item.name}">
+                            </a>
                             <div class="card-body">
-                            <h5 class="card-title" style="color: #212121 !important;">${item.name}</h5>
-                            <p class="card-text text-end text-muted">${item.price}</p>
+                            <h6 class="card-title" style="color: #212121 !important;">${item.name}</h6>
+                            <p class="card-text text-end text-muted d-flex justify-content-between">
+                                <span class="card-text text-start text-muted">${item.seller}</span>
+                                ${item.price}
+                            </p>
                             </div>
                             <div class="card-footer">
-                            <a href="#" class="btn text-light" style="background-color: #611d1e;">اشتري الأن</a>
+                            <a href="./product.html?id=${item.id}" class="btn text-light" style="background-color: #611d1e;">اشتري الأن</a>
                             </div>
                         </div>
-                        `;
+        `;
 
                         itemsList.appendChild(col);
                     });
@@ -310,8 +269,6 @@
                     console.error("Error:", error);
                 });
         }
-
-
 
         window.onload = function () {
             fetchData();

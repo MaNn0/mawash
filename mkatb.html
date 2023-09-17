@@ -49,15 +49,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/index.html#br">اقسامنا</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">سوق البناء</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">الفعاليات والعروض</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ">الخدمات</a>
-                    </li> -->
+
                     <li class="nav-item">
                         <a class="nav-link text-white" aria-current="page" href="./index.html">الرئيسيه</a>
                     </li>
@@ -144,15 +136,12 @@
             { name: 'منطقة تبوك', cities: ['تبوك', 'الوجه', 'ضبياء', 'تيماء', 'املج', 'حقل', 'ضباء'] },
             { name: 'منطقة الباحه', cities: ['الباحه', 'بالجرشي', 'المندق', 'المخواه', 'العقيق', 'قلوة', 'القرى', 'الحجرة', 'الاطاولة', 'غامد الزناد'] },
             { name: 'منطقة نجران', cities: ['نجران', 'الخرخير', 'شروره', 'حبونا', 'بدر الجنوب', 'يدمه', 'ثار', 'خباش'] },
-            // Add more states and their cities here
         ];
-        // const countrySelect = document.getElementById('office');
         const stateSelect = document.getElementById('state');
         const citySelect = document.getElementById('city');
         const searchButton = document.getElementById('search-button');
         const resultDiv = document.getElementById('result');
 
-        // Populate the state select element with the states of the selected country
         for (let i = 0; i < states.length; i++) {
             const stateOption = document.createElement('option');
             stateOption.value = states[i].name;
@@ -160,15 +149,12 @@
             stateSelect.appendChild(stateOption);
         }
 
-        // Display the cities of the selected state
         stateSelect.addEventListener('change', () => {
             const selectedState = stateSelect.value;
             const selectedStateObj = states.find(state => state.name === selectedState);
 
-            // Clear the city select element
             citySelect.innerHTML = '';
 
-            // Populate the city select element with the cities of the selected state
             for (let i = 0; i < selectedStateObj.cities.length; i++) {
                 const cityOption = document.createElement('option');
                 cityOption.value = selectedStateObj.cities[i];
@@ -182,17 +168,15 @@
             const selectedCity = citySelect.value;
 
             if (selectedState && selectedCity) {
-                // Clear the result container
                 resultDiv.innerHTML = '';
 
                 var table = document.createElement('table');
-                table.className = 'table table-bordered'; // Add the Bootstrap table and table-bordered classes
-                table.style.direction = 'rtl'; // Set the table direction to right-to-left
+                table.className = 'table table-bordered';
+                table.style.direction = 'rtl';
 
                 var thead = document.createElement('thead');
                 var trHead = document.createElement('tr');
 
-                // Adding table headers
                 var thNumber = document.createElement('th');
                 thNumber.setAttribute('scope', 'col');
                 thNumber.textContent = '#';
@@ -235,7 +219,6 @@
             }
         });
 
-        // Retrieve office details from the server
         function getDetails(selectedState, selectedCity, tbody) {
             fetch('https://almawash.serveo.net/offices')
                 .then(response => response.json())
@@ -244,32 +227,27 @@
                         var tr = document.createElement('tr');
                         tr.setAttribute('dir', 'rtl');
 
-                        // Adding the serial number (index + 1) in the first column
                         var tdNumber = document.createElement('td');
                         tdNumber.setAttribute('scope', 'row');
                         tdNumber.textContent = i + 1;
-                        tdNumber.style.textAlign = 'center'; // Set text alignment to center
+                        tdNumber.style.textAlign = 'center';
                         tr.appendChild(tdNumber);
 
-                        // Adding office name data in the second column
                         var tdOfficeName = document.createElement('td');
                         tdOfficeName.textContent = data[i].name;
                         tdOfficeName.style.textAlign = 'right';
                         tr.appendChild(tdOfficeName);
 
-                        // Adding owner name data in the third column
                         var tdOwnerName = document.createElement('td');
                         tdOwnerName.textContent = data[i].owner;
                         tdOwnerName.style.textAlign = 'right';
                         tr.appendChild(tdOwnerName);
 
-                        // Adding office category data in the fourth column
                         var tdOfficeCategory = document.createElement('td');
                         tdOfficeCategory.textContent = data[i].section;
                         tdOfficeCategory.style.textAlign = 'right';
                         tr.appendChild(tdOfficeCategory);
 
-                        // Adding office details data in the fifth column
                         var tdOfficeDetails = document.createElement('td');
                         tdOfficeDetails.style.textAlign = 'right';
 
@@ -290,7 +268,6 @@
 
 
 
-        // comment
         function search() {
             var citySelect = document.getElementById('city');
             var countrySelect = document.getElementById('state');
@@ -299,18 +276,11 @@
             var selectedCity = citySelect.value;
             var selectedCountry = countrySelect.value;
 
-            // if (selectedCity === '' || selectedCountry === '') {
-            //     resultDiv.innerHTML = 'برجاء اختيار المدينة او المنطقة';
-            //     return;
-            // }
-
-            // Clear the result container
             resultDiv.innerHTML = '';
 
             var table = document.createElement('table');
-            table.className = 'table table-bordered'; // Add the Bootstrap table and table-bordered classes
-            table.style.direction = 'rtl'; // Set the table direction to right-to-left
-
+            table.className = 'table table-bordered';
+            table.style.direction = 'rtl';
             var thead = document.createElement('thead');
             var trHead = document.createElement('tr');
 
@@ -350,13 +320,47 @@
 
             var tbody = document.createElement('tbody');
 
-            getDetails(selectedCity, selectedCountry, tbody);
+            // Create a few rows with fake data
+            for (var i = 1; i <= 5; i++) {
+                var tr = document.createElement('tr');
+                tr.setAttribute('dir', 'rtl');
+
+                // Fill in the table cells with fake data
+                var tdNumber = document.createElement('td');
+                tdNumber.textContent = i;
+                tdNumber.style.textAlign = 'center';
+                tr.appendChild(tdNumber);
+
+                var tdOfficeName = document.createElement('td');
+                tdOfficeName.textContent = 'اسم المكتب ' + i;
+                tdOfficeName.style.textAlign = 'right';
+                tr.appendChild(tdOfficeName);
+
+                var tdOwnerName = document.createElement('td');
+                tdOwnerName.textContent = 'اسم المالك ' + i;
+                tdOwnerName.style.textAlign = 'right';
+                tr.appendChild(tdOwnerName);
+
+                var tdOfficeCategory = document.createElement('td');
+                tdOfficeCategory.textContent = 'فئة المكتب ' + i;
+                tdOfficeCategory.style.textAlign = 'right';
+                tr.appendChild(tdOfficeCategory);
+
+                var tdOfficeDetails = document.createElement('td');
+                var linkElement = document.createElement('a');
+                linkElement.href = './tafasel.html?id=' + i;
+                linkElement.textContent = 'تفاصيل المكتب ' + i;
+                linkElement.style.color = '#611d1e';
+                tdOfficeDetails.appendChild(linkElement);
+                tr.appendChild(tdOfficeDetails);
+
+                tbody.appendChild(tr);
+            }
 
             table.appendChild(tbody);
             resultDiv.appendChild(table);
-
-
         }
+
 
     </script>
 

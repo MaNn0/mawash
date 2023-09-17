@@ -17,7 +17,6 @@ h5,
 h6 {
   text-align: end;
   font-family: "GE SS Two";
-  /* font-size: 15px; */
   line-height: 1.5;
 }
 ::selection {
@@ -43,7 +42,6 @@ body::-webkit-scrollbar {
   background-color: inherit;
 }
 .result-container {
-  /* Add your desired styles here */
   padding: 5px;
   background-color: #f2f2f2;
   border: 1px solid #ccc;

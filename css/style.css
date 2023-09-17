@@ -1,7 +1,6 @@
 @font-face {
   font-family: "GE SS Two";
-  /* src: url(./fonts/alfont_com_AlFont_com_GE_SS_Two_Light-2.otf);
- */
+
   src: url(../fonts/alfont_com_All-Genders-Light-v4.otf);
 }
 
@@ -13,13 +12,11 @@ html {
 }
 body {
   font-family: "GE SS Two";
-  /* font-size: 15px; */
   line-height: 1.5;
   background-color: #000 !important;
   color: #fff !important;
   background-image: url("/Pics/image.jpg");
-  /* background-position-x: 70%; */
-  /* opacity: 0; */
+
   background-size: cover;
   background-attachment: fixed;
 }
@@ -42,31 +39,22 @@ body::-webkit-scrollbar {
   width: 5px !important;
 }
 
-/* body::-webkit-scrollbar-track {
-  background: #ccc; /* color of the tracking area */
-/* } */
 .logooo {
-  /* border: 3px double #c7a96b; */
   border-spacing: 10px;
   background-color: #fff;
   padding: 10px;
   margin-left: 10px;
-  /* border-radius: 10%; */
 }
 .bg-img {
-  /* background: url(./Pics/Shadow\ Spaces_\ Miniature\ architecture\ crafted\ from\ paper\ looks\ like\ real\ buildings.png); */
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* margin-right: 500px; */
   width: 99vw;
-  /* height: 100vh; */
   opacity: 0.5;
   z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
 }
 .iframe {
-  /* position: absolute; */
   left: 0%;
   top: 10%;
 }
@@ -74,8 +62,7 @@ body::-webkit-scrollbar {
 .sidenav {
   width: 120px;
   background-color: #fff;
-  /* opacity: 0.2; */
-  /* position: fixed; */
+
   height: 100vh;
   right: 0;
   bottom: 0px;
@@ -97,7 +84,7 @@ body::-webkit-scrollbar {
   content: counter(num);
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #ccc !important; /* color of the scroll thumb */
+  background-color: #ccc !important;
 }
 
 .cont {
@@ -108,7 +95,6 @@ body::-webkit-scrollbar-thumb {
   color: #888888;
   transform: translate(-50%, -50%);
   background-color: transparent;
-  /* font-size: 50px; */
   font-weight: 400;
 }
 .btn-outline-primary {
@@ -135,7 +121,6 @@ body::-webkit-scrollbar-thumb {
   color: #888888;
   transform: translate(-50%, -50%);
   background-color: transparent;
-  /* font-size: 50px; */
   font-weight: 400;
 }
 
@@ -249,7 +234,6 @@ body::-webkit-scrollbar-thumb {
 .ll img {
   height: 170px;
   width: 200px;
-  /* position: absolute; */
 }
 
 .transparent {
@@ -308,7 +292,6 @@ body::-webkit-scrollbar-thumb {
   border: 0.5px solid #ccc;
 }
 .shel {
-  /* padding-left: 0; */
   text-align: center;
   border-radius: 0 !important;
 }
@@ -486,7 +469,6 @@ footer i:hover {
   letter-spacing: 1;
   margin: 0 20px;
   font-size: 10px;
-  /* text-align: center; */
 }
 .aligntext {
   text-align: center !important;
@@ -550,15 +532,8 @@ a {
   background-color: #444;
 }
 
-/* .list-group-item {
-  display: flex;
-  justify-content: center;
-  background-color: transparent !important;
-  border: none !important;
-} */
 .list-group-item a {
   text-decoration: none;
-  /* color: #eee; */
   word-spacing: 2px;
   letter-spacing: 1px;
 }
@@ -606,12 +581,10 @@ a {
 .fa-circle {
   font-size: 10px;
   align-items: center;
-  /* margin-right: 3px; */
 }
 .whi:hover i {
   color: #616161 !important;
 }
-/* store */
 .card {
   color: #000;
   background-color: #d0d0d0;
@@ -626,11 +599,7 @@ a {
   height: 160px;
   width: 250px;
   border: 2px solid #c7a96b;
-  /* transition: width 2s, height 2s !important; */
 }
-/* .haver:hover { */
-/* box-shadow: 10px 10px rgb(100, 100, 100); */
-/* } */
 
 .so2 {
   box-shadow: #c7a96b 0px 7px 29px 0px;
@@ -691,7 +660,3 @@ a {
   width: 8% !important;
   margin-bottom: 10px;
 }
-
-/* @media (1000px < width) {
-  iqr: background-color: ;;
-} */

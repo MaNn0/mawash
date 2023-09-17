@@ -49,15 +49,7 @@
                     <li class="nav-item">
                         <a class="nav-link text-white" href="/index.html#br">اقسامنا</a>
                     </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="#">سوق البناء</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">الفعاليات والعروض</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link ">الخدمات</a>
-                    </li> -->
+
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="./index.html">الرئيسيه</a>
                     </li>
@@ -81,9 +73,7 @@
         <div class="container">
 
             <div class="row">
-                <!-- <div class="col mx-3 d-flex align-items-end" style="padding: 12px;">
-                    <button class="btn btn-primary w-100" onclick="search()">ابحث</button>
-                </div> -->
+
 
                 <div class="col mx-3" style="padding: 12px;">
                     <h4>درجة التصنيف</h4>
@@ -141,10 +131,7 @@
             </div>
 
         </div>
-        <!-- <div class="col-sm-12 d-flex justify-content-center">
 
-            <button class="btn btn-primary" onclick="search()">ابحث</button>
-        </div> -->
         <div id="result" style="text-align: end;"></div>
     </div>
 
@@ -162,27 +149,23 @@
                 return;
             }
 
-            // Get the fake information based on the selected city and country
             var fakeInfo = [
                 { officeName: 'مكتب رايس للاستشارات الهندسية', ownerName: 'معجب بن عبدالرحمن بن مطلق العضياني العتيبي', officeCategory: 'مكتب استشارات هندسية', officeDetails: 'تفاصيل ' },
                 { officeName: 'شافي جزاء الرويس للاستشارات الهندسية', ownerName: 'شافي جزاء علي الرويس', officeCategory: 'مكتب استشارات هندسية', officeDetails: 'تفاصيل ' },
                 { officeName: 'مكتب استشارات هندسية', ownerName: 'مالك المكتب رقم 3', officeCategory: 'مكتب استشارات هندسية', officeDetails: 'تفاصيل ' }, { officeName: 'مكتب استشارات هندسية', ownerName: 'مالك المكتب رقم 3', officeCategory: 'مكتب استشارات هندسية', officeDetails: 'تفاصيل ' }
             ];
 
-            // Display the fake information in the result container
             resultDiv.innerHTML = '';
             resultDiv.style.padding = '5px';
-            // resultDiv.style.backgroundColor = '#ccc';
             resultDiv.style.border = '1px solid #ccc';
 
             var table = document.createElement('table');
-            table.className = 'table'; // Add the Bootstrap table class
-            table.style.direction = 'rtl'; // Set the table direction to right-to-left
+            table.className = 'table';
+            table.style.direction = 'rtl';
 
             var thead = document.createElement('thead');
             var trHead = document.createElement('tr');
 
-            // Adding table headers
             var thNumber = document.createElement('th');
             thNumber.setAttribute('scope', 'col');
             thNumber.textContent = '#';
@@ -217,31 +200,26 @@
                 var tr = document.createElement('tr');
                 tr.setAttribute('dir', 'rtl')
 
-                // Adding the serial number (index + 1) in the first column
                 var tdNumber = document.createElement('td');
                 tdNumber.setAttribute('scope', 'row');
                 tdNumber.textContent = i + 1;
                 tr.appendChild(tdNumber);
 
-                // Adding office name data in the second column
                 var tdOfficeName = document.createElement('td');
                 tdOfficeName.textContent = fakeInfo[i].officeName;
                 tdOfficeName.setAttribute('dir', 'rtl');
                 tr.appendChild(tdOfficeName);
 
-                // Adding owner name data in the third column
                 var tdOwnerName = document.createElement('td');
                 tdOwnerName.textContent = fakeInfo[i].ownerName;
                 tdOwnerName.setAttribute('dir', 'rtl');
                 tr.appendChild(tdOwnerName);
 
-                // Adding office category data in the fourth column
                 var tdOfficeCategory = document.createElement('td');
                 tdOfficeCategory.textContent = fakeInfo[i].officeCategory;
                 tdOfficeCategory.setAttribute('dir', 'rtl');
                 tr.appendChild(tdOfficeCategory);
 
-                // Adding office details data in the fifth column
                 var tdOfficeDetails = document.createElement('td');
                 tdOfficeDetails.textContent = fakeInfo[i].officeDetails;
                 tdOfficeDetails.setAttribute('dir', 'rtl');

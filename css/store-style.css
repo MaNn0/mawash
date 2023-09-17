@@ -1,7 +1,5 @@
 font-face {
   font-family: "GE SS Two";
-  /* src: url(./fonts/alfont_com_AlFont_com_GE_SS_Two_Light-2.otf);
-   */
   src: url(../fonts/alfont_com_All-Genders-Light-v4.otf);
 }
 
@@ -13,13 +11,9 @@ html {
 }
 body {
   font-family: "GE SS Two";
-  /* font-size: 15px; */
   line-height: 1.5;
-  /* background-color: #000 !important; */
   color: #fff !important;
-  /* background-image: url("./Pics/image.jpg"); */
-  /* background-position-x: 70%; */
-  /* opacity: 0; */
+
   background-size: cover;
   background-attachment: fixed;
 }
